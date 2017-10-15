@@ -45,7 +45,7 @@ public class WechatController {
         try {
              wxMpOAuth2AccessToken = wxMpService.oauth2getAccessToken(code);
         } catch (WxErrorException e) {
-            log.error("【微信网页授权】{}", e);
+            log.error("【微信网页授权】，失败，{}", e);
             throw new SellException(ResultEnum.WX_MP_ERROR.getCode(), e.getError().getErrorMsg());
         }
         String openId = wxMpOAuth2AccessToken.getOpenId();
