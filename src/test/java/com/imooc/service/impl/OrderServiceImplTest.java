@@ -100,4 +100,12 @@ public class OrderServiceImplTest {
         Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(), result.getPayStatus());
     }
 
+    @Test
+    public void findList1() throws Exception {
+        Pageable pageable = new PageRequest(0, 2);
+        Page<OrderDTO> orderDTOPage = orderService.findList(pageable);
+        Assert.assertNotEquals(0, orderDTOPage.getTotalElements());
+    }
+
+
 }
